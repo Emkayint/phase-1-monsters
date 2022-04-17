@@ -23,6 +23,11 @@ function monsters(page){
 
 document.addEventListener('DOMContentLoaded', (e) => {
     monsters(page)
+    let btnUp = document.getElementById('back')
+    let btnDown = document.getElementById('forward')
+
+    btnUp.addEventListener('click', pageUp)
+    btnDown.addEventListener('click', pageDown)
     let myForm = document.querySelector('form')
 
     myForm.addEventListener('submit', (e) => {
@@ -57,17 +62,20 @@ document.addEventListener('DOMContentLoaded', (e) => {
 let pageUp = () => {
     page++;
     monsters(page)
+    console.log(page)
+
 }
 
 let pageDown = () => {
-    if(page > 1){
-        page --;
+    if(page < 1){
+        console.log(page)
+
+    } else {
+        page --
         monsters(page)
     }
 }
 
-let btnUp = document.getElementById('back')
-let btnDown = document.getElementById('forward')
 
-btnUp.addEventListener('click', pageUp)
-btnDown.addEventListener('click', pageDown)
+
+console.log(page)
